@@ -46,7 +46,6 @@ ISR(USART_RX_vect)
   if (uart_data != NULL)
   {
     uart_data->rx.data[uart_data->rx.head] = UDR0;
-    PORTB |= (1 << PORTB5);
     if (uart_data->rx.head == DATA_BUFFER_LEN - 1)
     {
       uart_data->rx.head = 0;
